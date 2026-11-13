@@ -82,6 +82,10 @@ function q4(){
     let curso = inputCurso.value
     let matricula = inputMatricula.value
 
-    let alunos = []
+    let alunos = [
+        {nome:"joao", idade:16, curso:"TI", matricula:"0000100267"}
+    ]
+
+    
 
 }
