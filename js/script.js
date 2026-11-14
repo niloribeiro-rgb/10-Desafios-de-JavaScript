@@ -16,6 +16,15 @@ const dados = [
     <input type="number" id="quantidade" placeholder="quantidade">
     <input type="number" id="desconto" placeholder="percentual de desconto(%)">
     <button onclick="q3()">Calcular</button>`}
+    ,
+    {
+        titulo: "Questão 4 — Cadastro e Listagem de Alunos", html: ` <input type="text" id="q4nome" placeholder="nome">
+    <input type="number" id="idade" placeholder="idade">
+    <input type="text" id="curso" placeholder="curso">
+    <input type="number" id="matricula" placeholder="matrícula">
+    <button onclick="q4('salvar')">salvar</button>
+    <button onclick="q4('mostrar')">mostrar</button>
+`}
 ]
 
 const questoes = document.querySelector(`#questoes`)
@@ -36,13 +45,13 @@ function inserirQuestoes(questao) {
 
 //q1
 function q1() {
-   
+
     let nome = document.querySelector(`#nomeAluno`)
     let inputNota1 = document.querySelector(`#nota1`)
     let inputNota2 = document.querySelector(`#nota2`)
     let inputNota3 = document.querySelector(`#nota3`)
 
-    if(nome.value == ""){
+    if (nome.value == "") {
         alert("digite o nome")
         return
     }
@@ -113,21 +122,55 @@ function q3() {
 }
 
 //q4
-function q4() {
-    let inputNome = document.querySelector(`#q4nome`)
-    let inputIdade = document.querySelector(`#idade`)
-    let inputCurso = document.querySelector(`#curso`)
-    let inputMatricula = document.querySelector(`#matricula`)
+let alunos = [
+    { nome: "joao", idade: 16, curso: "TI", matricula: "0000100267" }
+]
+function q4(opcaoBotao) {
+    if (opcaoBotao == "salvar") {
+        let inputNome = document.querySelector(`#q4nome`)
+        let inputIdade = document.querySelector(`#idade`)
+        let inputCurso = document.querySelector(`#curso`)
+        let inputMatricula = document.querySelector(`#matricula`)
 
-    let nome = inputNome.value
-    let idade = inputIdade.value
-    let curso = inputCurso.value
-    let matricula = inputMatricula.value
+        let nome = inputNome.value
+        let idade = inputIdade.value
+        let curso = inputCurso.value
+        let matricula = inputMatricula.value
 
-    let alunos = [
-        { nome: "joao", idade: 16, curso: "TI", matricula: "0000100267" }
-    ]
+        if(nome == ""){
+            alert("digite nome")
+            return
+        }
+        if(idade == ""){
+            alert("digite idade")
+            return
+        }
+          if(curso == ""){
+            alert("digite curso")
+            return
+        }
+          if(matricula == ""){
+            alert("digite matricula")
+            return
+        }
+        let stop = false
+        alunos.forEach((aluno, index) => {
+            if (aluno.matricula.includes(matricula) == true && matricula.length == aluno.matricula.length) {
+                alert("matricula ja existe")
+                stop = true
+            }
+        })
+        if (stop == true) {
+            return
+        }
 
 
-
+        alunos.push({ nome: nome, idade: idade, curso: curso, matricula: matricula })
+    }
+        let registros = ""
+    
+        alunos.forEach((aluno, index) => {
+            registros += `${index + 1}. nome: ${aluno.nome}, idade: ${aluno.idade}, curso: ${aluno.curso}, matricula: ${aluno.matricula}\n`
+        })
+        alert(registros)
 }
