@@ -19,9 +19,18 @@ const dados = [
         titulo: "Questão 4 — Cadastro e Listagem de Alunos", html: ` <input type="text" id="q4nome" placeholder="nome">
     <input type="number" id="idade" placeholder="idade">
     <input type="text" id="curso" placeholder="curso">
-    <input type="number" id="matricula" placeholder="matrícula">
+    <input type="text" id="matricula" placeholder="matrícula">
     <button onclick="q4('salvar')">salvar</button>
     <button onclick="q4('mostrar')">mostrar</button>
+`}
+    ,
+    {
+        titulo: "Questão 5 — Sistema de Pesquisa e Filtro", html: ` <input type="text" id="q4nome" placeholder="nome">
+    <input type="number" id="idade" placeholder="idade">
+    <input type="text" id="curso" placeholder="curso">
+    <input type="number" id="matricula" placeholder="matrícula">
+    <button onclick="q4('salvar')">Salvar</button>
+    <button onclick="q4('mostrar')">Mostrar Todos</button>
 `}
 ]
 
